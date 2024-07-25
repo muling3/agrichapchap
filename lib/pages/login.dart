@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 import 'package:agrichapchap/pages/buyers_products_grid.dart';
 import 'package:agrichapchap/pages/forgot_password.dart';
 import 'package:agrichapchap/pages/home_screen.dart';
@@ -7,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:agrichapchap/constants/app_colors.dart';
 import 'package:agrichapchap/constants/button_styles.dart';
 import 'package:agrichapchap/constants/form_field_decoration.dart';
+import 'package:toastification/toastification.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -20,6 +24,64 @@ class _LoginState extends State<Login> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _obscureText = true;
+
+  Future<void> _login() async {
+    final String url = 'https://kenhapermits.agilebiz.co.ke/api/Auth/Login';
+    final response = await http.post(
+      Uri.parse(url),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode({
+        'email': _usernameController.text,
+        'password': _passwordController.text,
+      }),
+    );
+
+    // Log the response body
+    print('Response body: ${response.body}');
+
+    if (response.statusCode == 200) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Login successful!')),
+      );
+
+      Widget navigateTo;
+
+      if (_usernameController.text == 'alexandermuli234@gmail.com') {
+        navigateTo = const HomeScreen();
+      } else {
+        navigateTo = const ProductsGrid();
+      }
+      toastification.show(
+        title: Text('Logged in successfully'),
+        type: ToastificationType.success,
+        style: ToastificationStyle.minimal,
+        dragToClose: true,
+        borderRadius: BorderRadius.circular(12),
+        autoCloseDuration: const Duration(seconds: 5),
+        showProgressBar: false,
+      );
+
+      // Navigator.of(context).pushReplacement(
+      //   PageRouteBuilder(
+      //     transitionDuration: const Duration(milliseconds: 250),
+      //     reverseTransitionDuration: const Duration(milliseconds: 100),
+      //     pageBuilder: (context, animation, secondaryAnimation) =>
+      //         ScaleTransition(
+      //       alignment: Alignment.bottomCenter,
+      //       scale: animation,
+      //       child: navigateTo,
+      //     ),
+      //   ),
+      // );
+    } else {
+      // Handle error
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Login failed. Please try again.')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,21 +145,31 @@ class _LoginState extends State<Login> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Logging in...')),
                       );
+                      _login();
 
-                      Navigator.of(context).pushReplacement(
-                        PageRouteBuilder(
-                          transitionDuration: const Duration(milliseconds: 250),
-                          reverseTransitionDuration:
-                              const Duration(milliseconds: 100),
-                          pageBuilder:
-                              ((context, animation, secondaryAnimation) =>
-                                  ScaleTransition(
-                                    alignment: Alignment.bottomCenter,
-                                    scale: animation,
-                                    child: const ProductsGrid(),
-                                  )),
-                        ),
-                      );
+                      //   Widget navigateTo;
+
+                      //   if (_usernameController.text ==
+                      //       'alexandermuli234@gmail.com') {
+                      //     navigateTo = const HomeScreen();
+                      //   } else {
+                      //     navigateTo = const ProductsGrid();
+                      //   }
+
+                      //   Navigator.of(context).pushReplacement(
+                      //     PageRouteBuilder(
+                      //       transitionDuration: const Duration(milliseconds: 250),
+                      //       reverseTransitionDuration:
+                      //           const Duration(milliseconds: 100),
+                      //       pageBuilder:
+                      //           ((context, animation, secondaryAnimation) =>
+                      //               ScaleTransition(
+                      //                 alignment: Alignment.bottomCenter,
+                      //                 scale: animation,
+                      //                 child: navigateTo,
+                      //               )),
+                      //     ),
+                      //   );
                     }
                   },
                   child: const Row(

@@ -33,12 +33,12 @@ final ThemeData lightTheme = ThemeData(
     textTheme: ButtonTextTheme.primary,
   ),
   appBarTheme: AppBarTheme(
-    backgroundColor: AppColors.lightGreen,
-    // backgroundColor: AppColors.white,
+    // backgroundColor: AppColors.lightGreen,
+    backgroundColor: AppColors.darkGreen,
     titleTextStyle: GoogleFonts.poppins(
       fontWeight: FontWeight.bold,
       fontSize: 20.0,
-      color: AppColors.black,
+      color: AppColors.white,
     ),
   ),
 );
