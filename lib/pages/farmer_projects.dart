@@ -190,9 +190,9 @@
 import 'package:agrichapchap/pages/project_details.dart';
 import 'package:agrichapchap/types/project.dart';
 import 'package:flutter/material.dart';
-import 'package:agrichapchap/constants/Appcolors.dart';
-import 'package:agrichapchap/constants/ButtonStyles.dart';
-import 'package:agrichapchap/constants/FormFieldDecoration.dart';
+import 'package:agrichapchap/constants/app_colors.dart';
+import 'package:agrichapchap/constants/button_styles.dart';
+import 'package:agrichapchap/constants/form_field_decoration.dart';
 
 class FarmerProjects extends StatefulWidget {
   const FarmerProjects({super.key});

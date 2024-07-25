@@ -1,5 +1,5 @@
-import 'package:agrichapchap/constants/ButtonStyles.dart';
-import 'package:agrichapchap/constants/FormFieldDecoration.dart';
+import 'package:agrichapchap/constants/button_styles.dart';
+import 'package:agrichapchap/constants/form_field_decoration.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -49,7 +49,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('resetting in...')),
+                        const SnackBar(content: Text('resetting in...')),
                       );
                     }
                   },

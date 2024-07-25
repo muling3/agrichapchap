@@ -1,4 +1,4 @@
-import 'package:agrichapchap/constants/Appcolors.dart';
+import 'package:agrichapchap/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 InputDecoration formFieldDecoration(String labelText) => InputDecoration(

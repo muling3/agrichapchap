@@ -1,6 +1,5 @@
 import 'dart:async';
-import 'package:agrichapchap/constants/Appcolors.dart';
-import 'package:agrichapchap/pages/home_screen.dart';
+import 'package:agrichapchap/constants/app_colors.dart';
 import 'package:agrichapchap/pages/login.dart';
 import 'package:flutter/material.dart';
 

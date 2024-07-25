@@ -1,6 +1,6 @@
-import 'package:agrichapchap/constants/Appcolors.dart';
-import 'package:agrichapchap/constants/ButtonStyles.dart';
-import 'package:agrichapchap/constants/FormFieldDecoration.dart';
+import 'package:agrichapchap/constants/app_colors.dart';
+import 'package:agrichapchap/constants/button_styles.dart';
+import 'package:agrichapchap/constants/form_field_decoration.dart';
 import 'package:flutter/material.dart';
 
 class RegisterBuyer extends StatefulWidget {
@@ -40,8 +40,9 @@ class _RegisterBuyerState extends State<RegisterBuyer> {
                     controller: _firstNameController,
                     decoration: formFieldDecoration('First Name'),
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please enter your first name';
+                      }
                       return null;
                     },
                   ),
@@ -50,8 +51,9 @@ class _RegisterBuyerState extends State<RegisterBuyer> {
                     controller: _lastNameController,
                     decoration: formFieldDecoration('Last Name'),
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please enter your last name';
+                      }
                       return null;
                     },
                   ),
@@ -61,10 +63,12 @@ class _RegisterBuyerState extends State<RegisterBuyer> {
                     decoration: formFieldDecoration('Email'),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please enter your email';
-                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value))
+                      }
+                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
                         return 'Please enter a valid email';
+                      }
                       return null;
                     },
                   ),
@@ -74,10 +78,12 @@ class _RegisterBuyerState extends State<RegisterBuyer> {
                     decoration: formFieldDecoration('Phone Number'),
                     keyboardType: TextInputType.phone,
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please enter your phone number';
-                      if (value.length != 10)
+                      }
+                      if (value.length != 10) {
                         return 'Phone number must be 10 digits';
+                      }
                       return null;
                     },
                   ),
@@ -101,8 +107,9 @@ class _RegisterBuyerState extends State<RegisterBuyer> {
                     ),
                     obscureText: _obscureText,
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please enter your password';
+                      }
                       return null;
                     },
                   ),
@@ -127,10 +134,12 @@ class _RegisterBuyerState extends State<RegisterBuyer> {
                     ),
                     obscureText: _confirmObscureText,
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please confirm your password';
-                      if (value != _passwordController.text)
+                      }
+                      if (value != _passwordController.text) {
                         return 'Passwords do not match';
+                      }
                       return null;
                     },
                   ),

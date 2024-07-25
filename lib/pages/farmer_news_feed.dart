@@ -73,6 +73,8 @@ class FarmerNewsFeed extends StatelessWidget {
     ),
   ];
 
+  FarmerNewsFeed({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -133,51 +135,10 @@ class FarmerNewsFeed extends StatelessWidget {
     );
   }
 
-  // Widget _buildImage(String imageUrl) {
-  //   return Stack(
-  //     children: [
-  //       Positioned.fill(
-  //         child: Image.asset(
-  //           'https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  //           width: 100,
-  //           fit: BoxFit.cover,
-  //         ),
-  //       ),
-  //       Positioned.fill(
-  //         child: Image.network(
-  //           imageUrl,
-  //           width: 100,
-  //           fit: BoxFit.cover,
-  //           loadingBuilder: (context, child, loadingProgress) {
-  //             if (loadingProgress == null) {
-  //               return child;
-  //             } else {
-  //               return Center(
-  //                 child: Image.network(
-  //                   'https://images.unsplash.com/photo-1523349122880-44486ffa7b14?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  //                   width: 100,
-  //                   fit: BoxFit.cover,
-  //                 ),
-  //               );
-  //             }
-  //           },
-  //           errorBuilder: (context, error, stackTrace) {
-  //             return Image.network(
-  //               'https://plus.unsplash.com/premium_photo-1661962692059-55d5a4319814?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  //               width: 100,
-  //               fit: BoxFit.cover,
-  //             );
-  //           },
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
-
   String _truncateDescription(String description, int wordLimit) {
     final words = description.split(' ');
     if (words.length > wordLimit) {
-      return words.take(wordLimit).join(' ') + '...';
+      return '${words.take(wordLimit).join(' ')}...';
     } else {
       return description;
     }

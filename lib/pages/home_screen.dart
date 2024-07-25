@@ -248,10 +248,10 @@
 //         },
 //       ),
 
-import 'package:agrichapchap/constants/Appcolors.dart';
+import 'package:agrichapchap/constants/app_colors.dart';
 import 'package:agrichapchap/pages/farmer_news_feed.dart';
 import 'package:agrichapchap/pages/farmer_projects.dart';
-import 'package:agrichapchap/pages/products_list.dart';
+import 'package:agrichapchap/pages/products_grid.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';

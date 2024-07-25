@@ -1,11 +1,12 @@
+import 'package:agrichapchap/pages/buyers_products_grid.dart';
 import 'package:agrichapchap/pages/forgot_password.dart';
 import 'package:agrichapchap/pages/home_screen.dart';
 import 'package:agrichapchap/pages/register_buyer.dart';
 import 'package:agrichapchap/pages/register_farmer.dart';
 import 'package:flutter/material.dart';
-import 'package:agrichapchap/constants/Appcolors.dart';
-import 'package:agrichapchap/constants/ButtonStyles.dart';
-import 'package:agrichapchap/constants/FormFieldDecoration.dart';
+import 'package:agrichapchap/constants/app_colors.dart';
+import 'package:agrichapchap/constants/button_styles.dart';
+import 'package:agrichapchap/constants/form_field_decoration.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -93,7 +94,7 @@ class _LoginState extends State<Login> {
                                   ScaleTransition(
                                     alignment: Alignment.bottomCenter,
                                     scale: animation,
-                                    child: const HomeScreen(),
+                                    child: const ProductsGrid(),
                                   )),
                         ),
                       );
@@ -104,13 +105,13 @@ class _LoginState extends State<Login> {
                     children: [
                       Expanded(
                         child: Center(
-                          child: Text('Login'), // Centered text
+                          child: Text('Login'),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 8.0),
                         child: Icon(Icons.login, size: 24),
-                      ), // Icon at the end
+                      ),
                     ],
                   ),
                 ),

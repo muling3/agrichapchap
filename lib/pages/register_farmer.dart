@@ -1,8 +1,8 @@
-import 'package:agrichapchap/constants/Appcolors.dart';
+import 'package:agrichapchap/constants/app_colors.dart';
 import 'package:agrichapchap/pages/login.dart';
 import 'package:flutter/material.dart';
-import 'package:agrichapchap/constants/ButtonStyles.dart';
-import 'package:agrichapchap/constants/FormFieldDecoration.dart';
+import 'package:agrichapchap/constants/button_styles.dart';
+import 'package:agrichapchap/constants/form_field_decoration.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -185,8 +185,9 @@ class _RegisterState extends State<Register> {
                     ),
                     obscureText: _obscureText,
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please enter your password';
+                      }
                       return null;
                     },
                   ),
@@ -211,10 +212,12 @@ class _RegisterState extends State<Register> {
                     ),
                     obscureText: _confirmObscureText,
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please confirm your password';
-                      if (value != _passwordController.text)
+                      }
+                      if (value != _passwordController.text) {
                         return 'Passwords do not match';
+                      }
                       return null;
                     },
                   ),
@@ -225,7 +228,7 @@ class _RegisterState extends State<Register> {
                     onPressed: () {
                       if (_formKey.currentState?.validate() ?? false) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Registering...')),
+                          const SnackBar(content: Text('Registering...')),
                         );
                       }
                     },
@@ -263,7 +266,7 @@ class _RegisterState extends State<Register> {
                                       ScaleTransition(
                                         alignment: Alignment.bottomCenter,
                                         scale: animation,
-                                        child: Login(),
+                                        child: const Login(),
                                       )),
                                 ),
                               );
